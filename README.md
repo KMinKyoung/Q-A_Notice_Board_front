@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Q&A 게시판
 
-## Getting Started
+Next.js 기반 Q&A 게시판 프론트엔드 프로젝트입니다.
+JWT 인증. 질문/답변/댓글 기능, 마이페이지(임시 주석처리) 등 일부를 포함합니다.
 
-First, run the development server:
+## ⚙️ 기술 스택
+ - **Next.js**
+ - **Tailwind CSS**
+ - **Lucide React / shadcn UI**
+ - **Fetch API(백엔드와 통신)**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+ 
+## ✅ 주요 기능
+###  인증
+- **로그인 / 회원가입**
+- **토큰 저장 및 자동 로그인 유지** 
+  - 현재는 토큰이 만료되어도 자동 로그아웃 처리가 없어 사용자 경험이 부자연스러움
+  - 추후 토큰 만료 시 자동 로그아웃 또는 토큰 갱신 로직 개선 필요
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+###  질문/답변
+- 질문 목록/상세/등록/수정
+- 답변 등록/수정/삭제
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 신고기능
+ - 작성된 질문 또는 답변에 대한 신고 가능 -> 403 권한 문제로 해결 중
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 마이페이지
+ - 사용자 본인이 작성한 질문에 대한 목록 조회(현재 주석처리) -> JWT 필터 적용 관련해서 수정 중
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## ⚙️ 구현 예정 또는 개선 필요 기능
+ - 관리자 페이지(신고된 콘텐츠 관리 및 유저 제재 기능)
+ - 좋아요 기능(페이지 새로 고침 시 반영)
+ - 마이페이지 활동 내역 확장(내 답변)
+ - 토큰 만료 시 자동 로그아웃 또는 갱신 처리
+ - 알림 기능(내 질문에 답변이 달릴 경우 알림)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
